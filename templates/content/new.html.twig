@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme itemForm 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+				<div id="login">
+					{{ form_start(itemForm) }}
+					<h1 class="h3 mb-3 font-weight-normal">New content</h1>
+					{{ form_rest(itemForm) }}
+					<button type="submit" class="btn btn-lg btn-primary">Create</button>
+					{{ form_end(itemForm) }}
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
