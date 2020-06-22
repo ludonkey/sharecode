@@ -43,6 +43,12 @@ class Code
      */
     private $language;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="codes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +110,18 @@ class Code
     public function setLanguage(?Language $language): self
     {
         $this->language = $language;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

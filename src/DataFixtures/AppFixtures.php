@@ -94,6 +94,7 @@ class AppFixtures extends Fixture
         $code1->setContent("#include <iostream>\n\nint main() {\n    std::cout << \"Hello World!\";\n    return 0;\n}");
         $code1->setCreationDate(new DateTime());
         $code1->setLanguage($langCPP);
+        $code1->setAuthor($users[mt_rand(0, count($users) - 1)]);
         $manager->persist($code1);
 
         $code2 = new Code();
@@ -102,6 +103,7 @@ class AppFixtures extends Fixture
         $code2->setContent("<?php\n\nforeach (\$array as \$key => \$value) {\n    echo \"\$key : \$value.\\n\";\n}");
         $code2->setCreationDate(new DateTime());
         $code2->setLanguage($langPHP);
+        $code2->setAuthor($users[mt_rand(0, count($users) - 1)]);
         $manager->persist($code2);
 
         $code3 = new Code();
@@ -110,6 +112,7 @@ class AppFixtures extends Fixture
         $code3->setContent("$ cat /etc/os-release");
         $code3->setCreationDate(new DateTime());
         $code3->setLanguage($langSH);
+        $code3->setAuthor($users[mt_rand(0, count($users) - 1)]);
         $manager->persist($code3);
 
         $code4 = new Code();
@@ -118,6 +121,7 @@ class AppFixtures extends Fixture
         $code4->setContent("def bubbleSort(arr):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n-i-1):\n            if arr[j] > arr[j+1] :\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n    return arr");
         $code4->setCreationDate(new DateTime());
         $code4->setLanguage($langPY);
+        $code4->setAuthor($users[mt_rand(0, count($users) - 1)]);
         $manager->persist($code4);
 
         $code5 = new Code();
@@ -126,6 +130,7 @@ class AppFixtures extends Fixture
         $code5->setContent("function delayedFunction() {\n    alert('Hello');\n}\nsetTimeout(delayedFunction, 3000);");
         $code5->setCreationDate(new DateTime());
         $code5->setLanguage($langJS);
+        $code5->setAuthor($users[mt_rand(0, count($users) - 1)]);
         $manager->persist($code5);
 
         $code6 = new Code();
@@ -134,6 +139,7 @@ class AppFixtures extends Fixture
         $code6->setContent("interface Person {\n    fullName: string;\n    toString();\n}");
         $code6->setCreationDate(new DateTime());
         $code6->setLanguage($langTS);
+        $code6->setAuthor($users[mt_rand(0, count($users) - 1)]);
         $manager->persist($code6);
 
         $code7 = new Code();
@@ -142,6 +148,7 @@ class AppFixtures extends Fixture
         $code7->setContent("public class MyThread extends Thread {\n    public void run(){\n        System.out.println(\"MyThread running\");\n    }\n}\n    \nMyThread myThread = new MyThread();\nmyTread.start();");
         $code7->setCreationDate(new DateTime());
         $code7->setLanguage($langJAVA);
+        $code7->setAuthor($users[mt_rand(0, count($users) - 1)]);
         $manager->persist($code7);
 
         $code8 = new Code();
@@ -150,6 +157,7 @@ class AppFixtures extends Fixture
         $code8->setContent("public class SaleItem\n{\n   public string Name { get; set; }\n   public decimal Price { get; set; }\n}");
         $code8->setCreationDate(new DateTime());
         $code8->setLanguage($langCS);
+        $code8->setAuthor($users[mt_rand(0, count($users) - 1)]);
         $manager->persist($code8);
 
         $code9 = new Code();
@@ -158,6 +166,7 @@ class AppFixtures extends Fixture
         $code9->setContent("SELECT SUBJECT, YEAR, Count(*)\nFROM Student\nGROUP BY SUBJECT, YEAR;");
         $code9->setCreationDate(new DateTime());
         $code9->setLanguage($langSQL);
+        $code9->setAuthor($users[mt_rand(0, count($users) - 1)]);
         $manager->persist($code9);
 
         $manager->flush();
