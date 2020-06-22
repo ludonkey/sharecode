@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+	<div class=" container">
+		<a class="navbar-brand" href="{{ path('home')}}">[[ ShareCode ]]</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExample07">
+			<ul class="navbar-nav mr-auto"></ul>
+			<form class="form-inline my-2 my-md-0" action="{{ path('home')}}" id="search-form">
+				<input class="form-control" type="text" name="search" placeholder="Search" aria-label="Search" value="{{ previous_search }}">
+			</form>
+			<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" id="login-btn">Log in</a>
+			<a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" id="signup-btn">Sign up</a>
+		</div>
+	</div>
+</nav>

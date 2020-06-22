@@ -19,6 +19,17 @@ class CodeRepository extends ServiceEntityRepository
         parent::__construct($registry, Code::class);
     }
 
+    public function search($value)
+    {
+        $valueWithPercent = "%$value%";
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.content like :val')
+            ->orWhere('p.title like :val')
+            ->setParameter('val', $valueWithPercent)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Code[] Returns an array of Code objects
     //  */

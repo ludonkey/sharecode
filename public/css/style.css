@@ -1,0 +1,149 @@
+.btn-primary,
+.bg-primary {
+    background-color: teal !important;
+    border-color: teal !important;
+}
+
+.card-block {
+    margin-bottom: 30px;
+}
+
+.card {
+    border-radius: 0.5rem;
+    background-color: #3d4145;
+}
+
+.card-title {
+    border-bottom: 1px solid #414448;
+    background-color: #36393c;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    line-height: 37px;
+    overflow: hidden;
+    word-break: break-word;
+    border-radius: 0.5rem;
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    height: 43px;
+}
+
+.card-body {
+    padding-top: 50px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+
+.card-body pre {
+    width: 100%;
+}
+
+body {
+    color: #eeeeee;
+}
+
+footer a:hover,
+footer a {
+    color: #e83e8c;
+}
+
+.blockquote-footer {
+    color: #e83e8c;
+}
+
+.card-text {
+    margin-bottom: 0px;
+}
+
+.hljs {
+    background-color: transparent;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card-text,
+.blockquote-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btn-cpy {
+    margin-left: 20px;
+}
+
+.card-body pre {
+    margin-bottom: 0px;
+}
+
+hr {
+    margin-top: 0px;
+    margin-bottom: 1rem;
+    margin-left: 40px;
+    margin-right: 40px;
+    border: 0;
+    border-top: 2px solid #515458;
+}
+
+.no-result {
+    color: black;
+}
+
+#signup-btn {
+    background-color: #e83e8c;
+    border-color: transparent;
+}
+
+#new-btn {
+    background-color: #e83e8c;
+    border-color: transparent;
+    font-weight: bold;
+}
+
+form.form-new textarea.form-control {
+    height: 200px;
+}
+
+#login {
+    color: black;
+}
+
+.lg-cpp {
+    background-color: #ffc107;
+}
+
+.lg-php {
+    background-color: #6f42c1;
+}
+
+.lg-py {
+    background-color: #17a2b8;
+}
+
+.lg-js {
+    background-color: #fd7e14;
+}
+
+.lg-java {
+    background-color: #28a745;
+}
+
+.lg-cs {
+    background-color: #6610f2;
+}
+
+.lg-sh {
+    background-color: #6c757d;
+}
+
+.lg-ts {
+    background-color: #007bff;
+}
+
+.lg-sql {
+    background-color: #454b51;
+}
