@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme registrationForm 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+				<div id="login">
+					{{ form_start(registrationForm) }}
+					<h1 class="h3 mb-3 font-weight-normal">Register</h1>
+					{{ form_row(registrationForm.nickname) }}
+					{{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
+					<button type="submit" class="btn btn-lg btn-primary">Register</button>
+					{{ form_end(registrationForm) }}
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
