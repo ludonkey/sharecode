@@ -2,20 +2,31 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use App\Repository\UserRepository;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Security\Core\User\UserInterface;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * @ApiResource(
+ *   normalizationContext={"groups"={"read_user"}},
+ *   collectionOperations={"get"},
+ *   itemOperations={"get"}
+ * )
+ * @ApiFilter(SearchFilter::class, properties={"nickname": "partial"})
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"nickname"}, message="There is already an account with this nickname")
  */
 class User implements UserInterface
 {
     /**
+     * @Groups({"read_code","read_user"})
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -23,6 +34,7 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @Groups({"read_code","read_user"})
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $nickname;
@@ -39,6 +51,7 @@ class User implements UserInterface
     private $password;
 
     /**
+     * @Groups({"read_user"})
      * @ORM\OneToMany(targetEntity=Code::class, mappedBy="author")
      */
     private $codes;

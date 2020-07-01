@@ -2,15 +2,23 @@
 
 namespace App\Entity;
 
-use App\Repository\LanguageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\LanguageRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * @ApiResource(
+ *   normalizationContext={"groups"={"read_lang"}},
+ *   collectionOperations={"get"},
+ *   itemOperations={"get"}
+ * )
  * @ORM\Entity(repositoryClass=LanguageRepository::class)
  */
 class Language
 {
     /**
+     * @Groups({"read_code","read_lang"})
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -18,11 +26,13 @@ class Language
     private $id;
 
     /**
+     * @Groups({"read_code","read_lang"})
      * @ORM\Column(type="string", length=255)
      */
     private $fullname;
 
     /**
+     * @Groups({"read_code","read_lang"})
      * @ORM\Column(type="string", length=255)
      */
     private $shortname;

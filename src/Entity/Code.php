@@ -2,15 +2,26 @@
 
 namespace App\Entity;
 
-use App\Repository\CodeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CodeRepository;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
+ * @ApiResource(
+ *   normalizationContext={"groups"={"read_code"}},
+ *   collectionOperations={"get"},
+ *   itemOperations={"get"}
+ * )
+ * @ApiFilter(SearchFilter::class, properties={"title": "partial", "description": "partial", "content": "partial"})
  * @ORM\Entity(repositoryClass=CodeRepository::class)
  */
 class Code
 {
     /**
+     * @Groups({"read_code","read_user"})
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -18,32 +29,38 @@ class Code
     private $id;
 
     /**
+     * @Groups({"read_code","read_user"})
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     * @Groups({"read_code"})
      * @ORM\Column(type="string", length=255)
      */
     private $description;
 
     /**
+     * @Groups({"read_code"})
      * @ORM\Column(type="text")
      */
     private $content;
 
     /**
+     * @Groups({"read_code"})
      * @ORM\Column(type="datetime")
      */
     private $creationDate;
 
     /**
+     * @Groups({"read_code"})
      * @ORM\ManyToOne(targetEntity=Language::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $language;
 
     /**
+     * @Groups({"read_code"})
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="codes")
      * @ORM\JoinColumn(nullable=false)
      */
